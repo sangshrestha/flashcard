@@ -1,5 +1,6 @@
-import { Flashcard } from "@/components/Flashcard";
+import { Deck } from "@/components/Deck";
+import testList from "@/turkish.json";
 
 export default function Home() {
-  return (<Flashcard front="coffee" back="kahve"></Flashcard>)
+  return <Deck list={testList}></Deck>;
 }
