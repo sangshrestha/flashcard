@@ -1,0 +1,87 @@
+[
+  {
+    "front": "Yes",
+    "back": "Evet"
+  },
+  {
+    "front": "No",
+    "back": "Hayır"
+  },
+  {
+    "front": "Please",
+    "back": "Lütfen"
+  },
+  {
+    "front": "Thank you",
+    "back": "Teşekkürler"
+  },
+  {
+    "front": "Hello",
+    "back": "Merhaba"
+  },
+  {
+    "front": "Good bye",
+    "back": "Hoşça kalın"
+  },
+  {
+    "front": "How are you?",
+    "back": "Nasılsınız?"
+  },
+  {
+    "front": "I'm fine",
+    "back": "İyiyim"
+  },
+  {
+    "front": "Sorry",
+    "back": "Pardon"
+  },
+  {
+    "front": "I understand",
+    "back": "Anladım"
+  },
+  {
+    "front": "I don't understand",
+    "back": "Anlamadım"
+  },
+  {
+    "front": "Again",
+    "back": "Tekrar"
+  },
+  {
+    "front": "Slowly",
+    "back": "Yavaş"
+  },
+  {
+    "front": "What does it mean?",
+    "back": "Ne demek?"
+  },
+  {
+    "front": "English",
+    "back": "İngilizce"
+  },
+  {
+    "front": "What is it in Turkish?",
+    "back": "Türkçesi ne?"
+  },
+  {
+    "front": "How much (money)?",
+    "back": "Kaç para?"
+  },
+  {
+    "front": "Cheap",
+    "back": "Ucuz"
+  },
+  {
+    "front": "Expensive",
+    "back": "Pahalı"
+  },
+  {
+    "front": "There is some",
+    "back": "Var"
+  },
+  {
+    "front": "There isn't any",
+    "back": "Yok"
+  },
+  { "front": "Coffee", "back": "Kahve" }
+]
