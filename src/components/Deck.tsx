@@ -23,12 +23,14 @@ export function Deck({ list }: Deckprops) {
   }
 
   return (
-    <div className="relative flex flex-col justify-center gap-4 max-w-sm w-96 h-80">
-      <Flashcard
-        key={listIndex}
-        front={list[listIndex].front}
-        back={list[listIndex].back}
-      ></Flashcard>
+    <div className="flex flex-col justify-center gap-4 max-w-sm w-96 h-72">
+      <div className="relative h-56">
+        <Flashcard
+          key={listIndex}
+          front={list[listIndex].front}
+          back={list[listIndex].back}
+        ></Flashcard>
+      </div>
       <button
         className="mt-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={change}
