@@ -1,0 +1,50 @@
+[
+  {
+    "front": "Good morning",
+    "back": "Buenos días"
+  },
+  {
+    "front": "Good afternoon",
+    "back": "Buenas tardes"
+  },
+  {
+    "front": "Good night",
+    "back": "Buenas noches"
+  },
+  {
+    "front": "How are you?",
+    "back": "¿Cómo estás?"
+  },
+  {
+    "front": "Very well",
+    "back": "Muy bien"
+  },
+  {
+    "front": "Thank you!",
+    "back": "¡Gracias!"
+  },
+  {
+    "front": "No problem!",
+    "back": "¡De nada!"
+  },
+  {
+    "front": "Please",
+    "back": "Por favor"
+  },
+  {
+    "front": "Sorry!",
+    "back": "¡Lo siento!"
+  },
+  {
+    "front": "Do you understand?",
+    "back": "¿Entiende?"
+  },
+  {
+    "front": "Yes",
+    "back": "Sí"
+  },
+  {
+    "front": "No",
+    "back": "No"
+  }
+]

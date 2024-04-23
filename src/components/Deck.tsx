@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { FlashcardProps } from "./Flashcard";
 
@@ -11,7 +11,7 @@ type Deckprops = { list: FlashcardProps[] };
 
 export function Deck({ list }: Deckprops) {
   const startIndex = Math.floor(Math.random() * list.length);
-  const [listIndex, setListIndex] = React.useState(startIndex);
+  const [listIndex, setListIndex] = useState(startIndex);
 
   function change() {
     const startList = Array(list.length)
@@ -19,7 +19,10 @@ export function Deck({ list }: Deckprops) {
       .map((n, i) => i);
 
     const filterList = startList.filter((n) => n !== listIndex);
-    setListIndex(filterList[Math.floor(Math.random() * filterList.length)]);
+
+    if (filterList.length > 0) {
+      setListIndex(filterList[Math.floor(Math.random() * filterList.length)]);
+    }
   }
 
   return (

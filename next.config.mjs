@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { basePath: "/flashcard", output: "export" };
+const nextConfig = { basePath: "", output: "export" };
 
 export default nextConfig;
