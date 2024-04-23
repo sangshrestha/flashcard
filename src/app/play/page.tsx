@@ -1,7 +1,7 @@
 "use client";
 import { Deck } from "@/components/Deck";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function Play() {
   const [list, setList] = useState([
@@ -19,5 +19,9 @@ export default function Play() {
     }
   }, []);
 
-  return <Deck key={list[0].front} list={list}></Deck>;
+  return (
+    <Suspense>
+      <Deck key={list[0].front} list={list}></Deck>
+    </Suspense>
+  );
 }
