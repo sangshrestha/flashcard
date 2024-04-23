@@ -41,7 +41,7 @@ export default function Flashcard({ front, back }: FlashcardProps) {
 
   return (
     <div
-      className={`flashcard ${turn} absolute inset-0 w-96 h-60 rounded-sm cursor-pointer shadow-md select-none transition transform duration-700`}
+      className={`flashcard ${turn} absolute inset-0 w-100 min-h-24 rounded-sm cursor-pointer shadow select-none transition transform duration-1000`}
       onClick={flip}
     >
       <div
