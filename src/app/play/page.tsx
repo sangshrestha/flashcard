@@ -1,27 +1,30 @@
 "use client";
 import { Deck } from "@/components/Deck";
+import { FlashcardProps } from "@/components/Flashcard";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 export default function Play() {
-  const [list, setList] = useState([
-    { front: "Loading front", back: "Loading back" },
-  ]);
+  const [decks, setDecks] = useState<{ [key: string]: FlashcardProps[] }>();
 
-  const searchParams = useSearchParams();
-  const listName = searchParams.get("list");
+  function RenderDeck() {
+    const searchParams = useSearchParams();
+    const listName = searchParams.get("list");
+    if (listName && decks) {
+      return <Deck list={decks[listName]}></Deck>;
+    }
+  }
 
   useEffect(() => {
     const deckInStorage = window.localStorage.getItem("flashcard-deck");
-    if (deckInStorage && listName) {
-      const decks = JSON.parse(deckInStorage);
-      setList(decks[listName]);
+    if (deckInStorage) {
+      setDecks(JSON.parse(deckInStorage));
     }
   }, []);
 
   return (
     <Suspense>
-      <Deck key={list[0].front} list={list}></Deck>
+      <RenderDeck />
     </Suspense>
   );
 }
