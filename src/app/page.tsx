@@ -23,18 +23,24 @@ export default function Home() {
   }, []);
 
   return (
-    <nav className="flex flex-col">
+    <nav className="grid auto-rows-fr gap-2 max-w-sm w-96">
       {Object.keys(decks).map((key) => {
         return (
           <Link
             key={key}
-            className="capitalize"
+            className="capitalize text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-md px-5 py-2.5 inline-flex justify-center w-full text-center"
             href={{ pathname: "/play", query: { list: key } }}
           >
             {key}
           </Link>
         );
       })}
+      <Link
+        className="capitalize flex-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-md px-5 py-2.5 inline-flex justify-center w-full text-center"
+        href={{ pathname: "/edit" }}
+      >
+        +
+      </Link>
     </nav>
   );
 }
