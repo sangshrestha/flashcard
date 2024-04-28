@@ -16,7 +16,7 @@ export default function Play() {
   }
 
   useEffect(() => {
-    const deckInStorage = window.localStorage.getItem("flashcard-deck");
+    const deckInStorage = window.sessionStorage.getItem("flashcard-deck");
     if (deckInStorage) {
       setDecks(JSON.parse(deckInStorage));
     }
