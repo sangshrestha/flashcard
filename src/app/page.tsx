@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import turkish from "@/turkish.json";
 import spanish from "@/spanish.json";
 
-const defaultDecks = { turkish: turkish, spanish: spanish };
+const defaultDecks = { "turkish vocabs": turkish, spanish: spanish };
 
 export default function Home() {
   const [decks, setDecks] = useState(defaultDecks);
@@ -28,7 +28,7 @@ export default function Home() {
         return (
           <Link
             key={key}
-            className="capitalize text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-md px-5 py-2.5 inline-flex justify-center w-full text-center"
+            className="block first-letter:capitalize text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-md px-5 py-2.5 justify-center w-full text-center"
             href={{ pathname: "/play", query: { list: key } }}
           >
             {key}
