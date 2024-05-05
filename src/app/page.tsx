@@ -15,20 +15,16 @@ export default function Home() {
   const [decks, setDecks] = useState(defaultDecks);
 
   useEffect(() => {
-    window.sessionStorage.setItem(
-      "flashcard-deck",
-      JSON.stringify(defaultDecks)
-    );
-    /* const localDeck = window.localStorage.getItem("flashcard-deck");
+    const localDeck = window.sessionStorage.getItem("flashcard-deck");
 
     if (localDeck) {
       setDecks(JSON.parse(localDeck));
     } else {
-      window.localStorage.setItem(
+      window.sessionStorage.setItem(
         "flashcard-deck",
         JSON.stringify(defaultDecks)
       );
-    } */
+    }
   }, []);
 
   return (
