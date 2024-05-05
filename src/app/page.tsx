@@ -3,14 +3,23 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import turkish from "@/turkish.json";
 import spanish from "@/spanish.json";
+import tutu from "@/tutu.json";
 
-const defaultDecks = { "turkish vocabs": turkish, spanish: spanish };
+const defaultDecks = {
+  "turkish vocabs": turkish,
+  spanish: spanish,
+  tutu: tutu,
+};
 
 export default function Home() {
   const [decks, setDecks] = useState(defaultDecks);
 
   useEffect(() => {
-    const localDeck = window.localStorage.getItem("flashcard-deck");
+    window.sessionStorage.setItem(
+      "flashcard-deck",
+      JSON.stringify(defaultDecks)
+    );
+    /* const localDeck = window.localStorage.getItem("flashcard-deck");
 
     if (localDeck) {
       setDecks(JSON.parse(localDeck));
@@ -19,7 +28,7 @@ export default function Home() {
         "flashcard-deck",
         JSON.stringify(defaultDecks)
       );
-    }
+    } */
   }, []);
 
   return (
