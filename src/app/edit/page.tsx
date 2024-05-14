@@ -1,10 +1,12 @@
 "use client";
 import { Deck } from "@/components/Deck";
 import { FlashcardProps } from "@/components/Flashcard";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import { list } from "postcss";
 import { Suspense, useEffect, useState } from "react";
 
 export default function Edit() {
+  const router = useRouter();
   const [deck, setDeck] = useState<FlashcardProps[]>([]);
   const [frontText, setFrontText] = useState("");
   const [backText, setBackText] = useState("");
@@ -15,15 +17,29 @@ export default function Edit() {
   function addCard() {
     if (frontText && backText && deckName) {
       console.log(frontText, backText, deckName);
-      setDeck([...deck, { front: frontText, back: backText }]);
+      const updatedDeck = [...deck, { front: frontText, back: backText }];
+      setDeck(updatedDeck);
       setBackText("");
       setFrontText("");
+      const deckInStorage = window.sessionStorage.getItem("flashcard-deck");
+      if (deckInStorage) {
+        const storeDeck = JSON.parse(deckInStorage);
+        const mergedDeck = Object.assign(storeDeck, {
+          [deckName]: updatedDeck,
+        });
+
+        console.log(mergedDeck);
+        window.sessionStorage.setItem(
+          "flashcard-deck",
+          JSON.stringify(mergedDeck)
+        );
+      }
+
+      if (!listName) {
+        router.push(`/edit?list=${deckName}`);
+      }
     }
   }
-
-  useEffect(() => {
-    const deckInStorage = window.sessionStorage.getItem("flashcard-deck");
-  }, [deck]);
 
   return (
     <Suspense>
@@ -54,6 +70,12 @@ export default function Edit() {
             onChange={(e) => setBackText(e.currentTarget.value)}
           />
         </div>
+        <button
+          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={addCard}
+        >
+          Update deck
+        </button>
         <div className="mt-4 flex flex-col gap-4">
           {deck.toReversed().map((card, i) => {
             return (
@@ -68,12 +90,6 @@ export default function Edit() {
             );
           })}
         </div>
-        <button
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          onClick={addCard}
-        >
-          Update deck
-        </button>
       </div>
     </Suspense>
   );
